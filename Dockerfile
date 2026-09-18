@@ -1,12 +1,9 @@
 FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y procps
+RUN apt-get update && apt-get install -y python3 procps
 
 WORKDIR /app
 
-COPY monitor.sh .
+COPY monitor.py .
 
-RUN chmod +x monitor.sh
-
-CMD ["./monitor.sh"]
-
+CMD ["python3", "monitor.py"]
